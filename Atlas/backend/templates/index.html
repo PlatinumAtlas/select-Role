@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Role</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+<div class="container">
+    <h1>Select Your Role</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="role-card admin">
+            <h2>Admin</h2>
+            <button type="submit" name="role" value="admin">Select</button>
+        </div>
+
+        <div class="role-card faculty">
+            <h2>Faculty</h2>
+            <button type="submit" name="role" value="faculty">Select</button>
+        </div>
+
+        <div class="role-card student">
+            <h2>Student</h2>
+            <button type="submit" name="role" value="student">Select</button>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

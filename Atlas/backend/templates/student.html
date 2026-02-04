@@ -1,0 +1,227 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student & Faculty Directory</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #080808;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    header {
+      background: linear-gradient(90deg, #007bff, #0056b3);
+    }
+
+    h1 {
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      color: #f2f5f9;
+      font-weight: 600;
+      border-bottom: 2px solid #007bff;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    /* Table Styling */
+    table {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    thead {
+      background-color: #e5ecf3;
+      color: rgb(13, 12, 12);
+    }
+
+    tbody tr:hover {
+      background-color: #4e5155;
+      transition: 0.3s;
+    }
+    
+    /* Faculty Card Styling */
+    .card {
+      border: none;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(248, 26, 26, 0.15);
+    }
+
+    .card-title {
+      font-weight: bold;
+      color: #9f2706;
+    }
+
+    .card-subtitle {
+      font-style: italic;
+    }
+
+    .card-link {
+      color: #050607;
+      text-decoration: none;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="text-white text-center py-4">
+    <h1>Mangalore University</h1>
+  </header>
+
+  <div class="container my-5">
+
+    <!-- Header -->
+<header class="text-white text-center py-4 d-flex justify-content-between align-items-center px-4">
+  <h1 class="m-0">Mangalore University</h1>
+  <!-- Logout Button -->
+  <form action="index.html">
+    <button class="btn btn-danger">Logout</button>
+  </form>
+</header>
+
+    
+    <!-- Students Table -->
+    <section class="mb-5">
+      <h2 class="mb-3">Students</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Course</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Shashank</td>
+              <td>Joga</td>
+              <td>Artificial Intelligence</td>
+              <td>shashank@gmail.com</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Uttam</td>
+              <td>Mangli</td>
+              <td>Full Stack & Web Development</td>
+              <td>uttam@gmaile.com</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Vinod</td>
+              <td>Naik</td>
+              <td>Computer Science</td>
+              <td>vinod@gmail.com</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Anusha</td>
+              <td>Prabhu</td>
+              <td>python developer</td>
+              <td>anusha@gmail.com</td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>Jeevan</td>
+              <td>MS</td>
+              <td>big data anlytics</td>
+              <td>jeevan@gmail.com</td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>Tejal</td>
+              <td>Suvarna</td>
+              <td>cyber security</td>
+              <td>tejal@gmail.com
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Faculty Cards -->
+<section>
+  <h2 class="mb-4">Faculty & Staff</h2>
+  <div class="row g-4">
+    
+    <!-- Faculty Member 1 -->
+    <div class="col-md-3">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Mr. Puneeth Acharya</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Head of Full Stack & Web Development</h6>
+          <p class="card-text">Specializes in marine full stack and has been with the university for 5 years.</p>
+          <a href="#" class="card-link">Profile</a>
+          <a href="mailto:jane.doe@example.com" class="card-link">Email</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Faculty Member 2 -->
+    <div class="col-md-3">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Ms. Rajalaxmi</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Professor, Artificial Intelligence</h6>
+          <p class="card-text">Expert in AI and machine learning.</p>
+          <a href="#" class="card-link">Profile</a>
+          <a href="mailto:john.smith@example.com" class="card-link">Email</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Faculty Member 3 -->
+    <div class="col-md-3">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Ms. Prajna Mayadi</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Lecturer, Java</h6>
+          <p class="card-text">Specializes in modern Java and digital marketing.</p>
+          <a href="#" class="card-link">Profile</a>
+          <a href="mailto:sarah.c@example.com" class="card-link">Email</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Faculty Member 4 -->
+    <div class="col-md-3">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Ms. Rashmita </h5>
+          <h6 class="card-subtitle mb-2 text-muted">Skill trainer</h6>
+          <p class="card-text">AI and full stack development.</p>
+          <a href="#" class="card-link">Profile</a>
+          <a href="mailto:sarah.c@example.com" class="card-link">Email</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

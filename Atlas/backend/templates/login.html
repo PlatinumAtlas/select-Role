@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+</head>
+<link rel="stylesheet" href="{% static 'login.css' %}">
+<body>
+
+    <div class="login-container">
+        <h2>Welcome Back</h2>
+
+        <!-- Error message placeholder -->
+        <div class="error-msg" id="error-msg"></div>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <input type="text" id="username" required>
+                <label>Username or Email</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" required>
+                <label>Password</label>
+            </div>
+
+            <div class="options">
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="forgetpass.html">Forgot Password?</a>
+            </div>
+
+            <button class="login-btn" type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- JavaScript for multiple user validation -->
+    <script>
+        // Define users
+        const users = [
+            { username: "Admin", password: "Admin@123", redirect: "Admin.html" },
+            { username: "Faculty", password: "Faculty@123", redirect: "faculty.html" },
+            { username: "Student", password: "Student@123", redirect: "student.html" }
+        ];
+
+        const form = document.getElementById("loginForm");
+        const errorMsg = document.getElementById("error-msg");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const usernameInput = document.getElementById("username").value.trim();
+            const passwordInput = document.getElementById("password").value;
+
+            // Find matching user
+            const user = users.find(u => u.username === usernameInput && u.password === passwordInput);
+
+            if(user) {
+                // Correct credentials → redirect to respective page
+                window.location.href = user.redirect;
+            } else {
+                // Incorrect credentials → show error
+                errorMsg.textContent = "Invalid username or password!";
+            }
+        });
+
+        // Optional: remove error message when user starts typing again
+        document.getElementById("username").addEventListener("input", () => errorMsg.textContent = "");
+        document.getElementById("password").addEventListener("input", () => errorMsg.textContent = "");
+    </script>
+
+</body>
+</html>
