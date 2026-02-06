@@ -1,35 +1,140 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Select Role</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELCOME TO LMS</title>
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(300deg, #ff9f9f, #febf00);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  text-align: center;
+}
+
+h1 {
+  color: #000000;
+  margin-bottom: 30px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.role {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.role-card {
+  background: #ffffff;
+  width: 280px;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.role-card:hover {
+  transform: translateY(-10px);
+}
+
+.role-card img {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+.role-card h2 {
+  margin-bottom: 10px;
+}
+
+.role-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.role-card button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Role Colors */
+.admin button {
+  background: #000000;
+}
+
+.faculty button {
+  background: #040404;
+}
+
+.student button {
+  background: #000000;
+}
+a{
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 20px;
+
+}
+
+    </style>
 </head>
-
 <body>
-<div class="container">
-    <h1>Select Your Role</h1>
+    <div class="container">
+        <h1><b>Select Your Role</b></h1>
+        <div class="role"> 
 
-    <form method="POST">
-        {% csrf_token %}
-
-        <div class="role-card admin">
-            <h2>Admin</h2>
-            <button type="submit" name="role" value="admin">Select</button>
+            <!-- Admin card -->
+             <form method="POST">
+             {% csrf_token %}
+             <div class="role-card admin">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Admin">
+                <h2>Admin</h2>
+                <p>Manage users, system settings and reports</p>
+                <button onclick="selectRole('admin')">Select</button>
+             </div>
+             </form>
+             <!-- faculty card -->
+              <form method="POST">
+                {% csrf_token %} 
+              <div class="role-card faculty">
+               <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="Faculty">
+                <h2>Faculty</h2>
+                <p>Acccess courses, assignments and results</p>
+                <button onclick="selectRole('faculty')">Select</button>
+              </div>
+              </form>
+             <!-- Student card -->
+             <form method="POST">
+                {% csrf_token %}
+                <div class="role-card student"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" alt="student">
+                <h2>Student</h2>
+                <p>Access courses, assingments and results</p>
+                <button onclick="selectrole('student')">Select</button>
+                </form> 
+            </div> 
         </div>
 
-        <div class="role-card faculty">
-            <h2>Faculty</h2>
-            <button type="submit" name="role" value="faculty">Select</button>
-        </div>
-
-        <div class="role-card student">
-            <h2>Student</h2>
-            <button type="submit" name="role" value="student">Select</button>
-        </div>
-
-    </form>
-</div>
+    </div>
 </body>
 </html>
+
